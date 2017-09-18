@@ -131,7 +131,7 @@ My model differs from Nvidia's in the following ways:
 
 Although my model stays on the road for an complete lap, it has trouble in 2 sections. The model drives onto the yellow guide lanes but does not drive off the road.
 
-#### End of Turn 1 - decreasinf radius left turn, before the bridge
+#### End of Turn 1 - decreasing radius left turn, before the bridge
 ![End of Turn 1 - decreasing radius left turn, before the bridge][image2]
 
 #### End of Turn 3 - only right turn
@@ -145,23 +145,18 @@ I tried my best to stay in the center of the lane all the training data. I found
 
 I used left and right camera images along with the center image to improve training. The left and right images help the model train for off center driving scenarios. I corrected the steering angle for left and right images by 0.1.
 
-Left, Center, and Right Cameras
-
-### Left Camera Image
+#### Left Camera Image
 ![Left Camera Image][image5] 
-### Center Camera Image
+#### Center Camera Image
 ![Center Camera Image][image4]
-### Right Camera Image
+#### Right Camera Image
 ![Right Camera Image][image6]
 
 Since the the data for this model is very small, I flipped images to help the model generalize. The lap is counterclockwise with mainly left turns. This could bias the model to turning left. I now had 6 pieces of training data for each driving sample (center, left, right, flipped center, flipped, left, flipped right)
-
 #### Left Camera Image - Flipped
 ![Flipped Left Camera Image][image8]
-
 #### Center Camera Image - Flipped
 ![Flipped Center Camera Image][image7]
-
 #### Right Camera Image - Flipped
 ![Flipped Right Camera Image][image9]
 
