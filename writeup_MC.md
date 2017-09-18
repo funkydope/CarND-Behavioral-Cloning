@@ -131,8 +131,10 @@ My model differs from Nvidia's in the following ways:
 
 Although my model stays on the road for an complete lap, it has trouble in 2 sections. The model drives onto the yellow guide lanes but does not drive off the road.
 
+#### End of Turn 1 - decreasinf radius left turn, before the bridge
 ![End of Turn 1 - decreasing radius left turn, before the bridge][image2]
 
+#### End of Turn 3 - only right turn
 ![End of Turn 3 - only right turn][image3]
 
 I could improve the model's driving behavior by ensuring that only center driving data for these sections are in the training data set.
@@ -154,18 +156,18 @@ Left, Center, and Right Cameras
 
 Since the the data for this model is very small, I flipped images to help the model generalize. The lap is counterclockwise with mainly left turns. This could bias the model to turning left. I now had 6 pieces of training data for each driving sample (center, left, right, flipped center, flipped, left, flipped right)
 
-### Left Camera Image - Flipped
+#### Left Camera Image - Flipped
 ![Flipped Left Camera Image][image8]
 
-### Center Camera Image - Flipped
+#### Center Camera Image - Flipped
 ![Flipped Center Camera Image][image7]
 
-### Right Camera Image - Flipped
+#### Right Camera Image - Flipped
 ![Flipped Right Camera Image][image9]
 
 The camera images have a lot of information that isn't relevant to keeping the car on the road. The upper part of the image shows only the sky and background scenery. The bottom portion shows the car. Cropping these parts of the image helped the model train better.
 
-### Camera Image - Cropped
+#### Camera Image - Cropped
 ![Cropped Center Camera Image][image10]
 
 After the collection process, I had 51240 number of data points.
