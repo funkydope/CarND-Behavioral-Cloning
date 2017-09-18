@@ -145,17 +145,27 @@ I used left and right camera images along with the center image to improve train
 
 Left, Center, and Right Cameras
 
-![Left Camera Image][image5] ![Center Camera Image][image4] ![Right Camera Image][image6]
+### Left Camera Image
+![Left Camera Image][image5] 
+### Center Camera Image
+![Center Camera Image][image4]
+### Right Camera Image
+![Right Camera Image][image6]
 
 Since the the data for this model is very small, I flipped images to help the model generalize. The lap is counterclockwise with mainly left turns. This could bias the model to turning left. I now had 6 pieces of training data for each driving sample (center, left, right, flipped center, flipped, left, flipped right)
 
-Flipped Images
+### Left Camera Image - Flipped
+![Flipped Left Camera Image][image8]
 
-![Flipped Left Camera Image][image8] ![Flipped Center Camera Image][image7] ![Flipped Right Camera Image][image9]
+### Center Camera Image - Flipped
+![Flipped Center Camera Image][image7]
+
+### Right Camera Image - Flipped
+![Flipped Right Camera Image][image9]
 
 The camera images have a lot of information that isn't relevant to keeping the car on the road. The upper part of the image shows only the sky and background scenery. The bottom portion shows the car. Cropping these parts of the image helped the model train better.
 
-Cropped Center Image
+### Camera Image - Cropped
 ![Cropped Center Camera Image][image10]
 
 After the collection process, I had 51240 number of data points.
