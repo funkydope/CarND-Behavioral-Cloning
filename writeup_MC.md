@@ -27,7 +27,7 @@ The goals / steps of this project are the following:
 [image7]: ./writeup_images/center_flipped.png "Center Camera Flipped Image"
 [image8]: ./writeup_images/left_flipped.png "Left Camera Flipped Image"
 [image9]: ./writeup_images/right_flipped.png "Right Camera Flipped Image"
-[image10]: ./writeup_images/center_crppped.png "Center Camera Cropped Image"
+[image10]: ./writeup_images/center_cropped.png "Center Camera Cropped Image"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
