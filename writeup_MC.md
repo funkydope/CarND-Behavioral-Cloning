@@ -1,12 +1,12 @@
-#**Behavioral Cloning** 
+# **Behavioral Cloning** 
 
-##Writeup Template
+## Writeup Template
 
 ###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
 
 ---
 
-**Behavioral Cloning Project**
+** Behavioral Cloning Project**
 
 The goals / steps of this project are the following:
 * Use the simulator to collect data of good driving behavior
@@ -33,9 +33,9 @@ The goals / steps of this project are the following:
 ###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Files Submitted & Code Quality
+### Files Submitted & Code Quality
 
-####1. Submission includes all required files and can be used to run the simulator in autonomous mode
+#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
 * model.py containing the script to create and train the model
@@ -43,19 +43,19 @@ My project includes the following files:
 * model_nvdia_gen_s01_d05_e5.h5 containing a trained convolution neural network 
 * writeup_mc.md summarizing the results
 
-####2. Submission includes functional code
+#### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
 python drive.py model_nvdia_gen_s01_d05_e5.h5
 ```
 
-####3. Submission code is usable and readable
+#### 3. Submission code is usable and readable
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
+#### 1. An appropriate model architecture has been employed
 
 My model consists of a convolution neural network with 3x3 and 5x5 filter sizes and depths between 24 and 64 (see model.py line 100). The model architecture is summarized here: https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/.
 
@@ -63,39 +63,40 @@ My model consists of a convolution neural network with 3x3 and 5x5 filter sizes 
 
 The model includes RELU layers to introduce nonlinearity, and the data is normalized in the model using a Keras lambda layer. 
 
-####2. Attempts to reduce overfitting in the model
+#### 2. Attempts to reduce overfitting in the model
 
 The model contains a dropout layer with value 0.5 after the last convolutional layer to prevent overfitting. 
 
 I used the sklearn API to split the complete data set into training and validation sub data sets.
 
-####3. Model parameter tuning
+#### 3. Model parameter tuning
 
 The model used an Adam optimizer, which sets the learning rate automatically.
 
-####4. Appropriate training data
+#### 4. Appropriate training data
 
 I used 10 laps of simulator driving to train the model. 5 in the default counter-clockwise direction and in the reverser clockwise direction.
 
 Dee the following section for more detail.
 
-###Model Architecture and Training Strategy
+### Model Architecture and Training Strategy
 
-####1. Solution Design Approach
+#### 1. Solution Design Approach
 
 My model architecture strategy followed the Udacity lessons. I started with a 1 layer model confirm my code worked properly. I then followed the Nvidia Architecture. I thought this would work well since Nvidia's model operates with similar inputs.
 
 The model converges quickly, usually in 1-5 epochs. At this point, the training loss continues to decrease while the validation loss stabilizes or increases. This shows that the model is starting to overfit the training data. I typically started the run the model training with 5 epochs to evaluate overfitting as shown below.
 
-51258/51240 [==============================] - 295s - loss: 0.0089 - val_loss: 0.0067
-Epoch 2/5
-51265/51240 [==============================] - 265s - loss: 0.0078 - val_loss: 0.0064
-Epoch 3/5
-51261/51240 [==============================] - 265s - loss: 0.0075 - val_loss: 0.0071
-Epoch 4/5
-51244/51240 [==============================] - 265s - loss: 0.0076 - val_loss: 0.0063
-Epoch 5/5
-51267/51240 [==============================] - 265s - loss: 0.0071 - val_loss: 0.0064
+Epoch 1/5 <br> 
+51258/51240 [==============================] - 295s - loss: 0.0089 - val_loss: 0.0067 <br>
+Epoch 2/5 <br>
+51265/51240 [==============================] - 265s - loss: 0.0078 - val_loss: 0.0064 <br>
+Epoch 3/5 <br>
+51261/51240 [==============================] - 265s - loss: 0.0075 - val_loss: 0.0071 <br>
+Epoch 4/5 <br>
+51244/51240 [==============================] - 265s - loss: 0.0076 - val_loss: 0.0063 <br>
+Epoch 5/5 <br>
+51267/51240 [==============================] - 265s - loss: 0.0071 - val_loss: 0.0064 <br>
 
 In this case, I re-ran the training for 2 epochs since the validation loss does not decrease consistently after this point.
 
@@ -103,7 +104,8 @@ Finally, I would test the model on the driving simulator. My early models had tr
 
 I used Keras cropping to help the model focus only on the road. The upper and lower parts of the image are not useful to steering.
 
-####2. Final Model Architecture
+#### 2. Final Model Architecture <br>
+
 | Layer             | Spatial Size| Depth|    Description	        					| 
 |:---------------:  | :------:  | :---:|  :---------------------------------------------:| 
 | Input         	| 160x320   | 3    |RGB Image   | 
@@ -135,7 +137,7 @@ Although my model stays on the road for an complete lap, it has trouble in 2 sec
 
 I could improve the model's driving behavior by ensuring that only center driving data for these sections are in the training data set.
 
-####3. Creation of the Training Set & Training Process
+#### 3. Creation of the Training Set & Training Process
 
 I tried my best to stay in the center of the lane all the training data. I found that using a keyboard or mouse did not allow to me to control the simulator well. I instead used a PlayStation controller to control the car. I could now stay in the center of the lane better and steering more smoothly.
 
